@@ -84,4 +84,5 @@ var isValidNewBlock = (newBlock, previousBlock) => {
 
 var getLatestBlock = () => blockchain[blockchain.length - 1];
 
+// start the application
 startHttpServer();
