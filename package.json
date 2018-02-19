@@ -1,0 +1,17 @@
+{
+  "name": "simplechain",
+  "version": "1.0.0",
+  "description": "Simple block chain server",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "crypto-js": "^3.1.8",
+    "express": "~4.11.2",
+    "ws": "^1.1.5"
+  },
+  "engines": {
+    "node": ">=9.4.0"
+  }
+}
