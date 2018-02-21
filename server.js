@@ -2,7 +2,7 @@
 var CryptoJS = require("crypto-js");
 var express = require("express");
 var bodyParser = require('body-parser');
-var peerServer = require('./peer');
+var peerServer = require('./peerServer');
 var Block = require('./block');
 
 // Setting up the correct ports

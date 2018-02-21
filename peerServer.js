@@ -23,7 +23,7 @@ peer.startPeerServer = () =>{
     console.log('listening websocket peer port on: ' + peer_port);
 };
 
-// send messages to all nodes
+// Send messages to all nodes
 var initConnection = (ws) => {
     peer.sockets.push(ws);
     startMessageHandler(ws);
@@ -31,7 +31,7 @@ var initConnection = (ws) => {
     write(ws, queryChainLengthMsg());
 };
 
-// start Error Handler
+// Start Error Handler
 var startErrorHandler = (ws) => {
     var closeConnection = (ws) => {
         console.log('connection failed to peer: ' + ws.url);
@@ -41,7 +41,7 @@ var startErrorHandler = (ws) => {
     ws.on('error', () => closeConnection(ws));
 };
 
-// start the message handler
+// Start the message handler
 var startMessageHandler = (ws) => {
     ws.on('message', (data) => {
         var message = JSON.parse(data);
@@ -61,7 +61,7 @@ var startMessageHandler = (ws) => {
 };
 
 
-// connecting to new peers
+// Connecting to new peers
 peer.connectToPeers = (newPeers) => {
     newPeers.forEach((peer) => {
         var ws = new WebSocket(peer);
@@ -72,7 +72,7 @@ peer.connectToPeers = (newPeers) => {
     });
 };
 
-// changle blockchain response
+// Changle blockchain response
 var handleBlockchainResponse = (message) => {
     var receivedBlocks = JSON.parse(message.data).sort((b1, b2) => (b1.index - b2.index));
     var latestBlockReceived = receivedBlocks[receivedBlocks.length - 1];
@@ -95,7 +95,7 @@ var handleBlockchainResponse = (message) => {
     }
 };
 
-// replace chain
+// Replace chain
 var replaceChain = (newBlocks) => {
     if (isValidChain(newBlocks) && newBlocks.length > blockchain.length) {
         console.log('Received blockchain is valid. Replacing current blockchain with received blockchain');
@@ -106,7 +106,7 @@ var replaceChain = (newBlocks) => {
     }
 };
 
-// check if chain is valid
+// Check if chain is valid
 var isValidChain = (blockchainToValidate) => {
     if (JSON.stringify(blockchainToValidate[0]) !== JSON.stringify(getGenesisBlock())) {
         return false;
@@ -132,6 +132,7 @@ var responseLatestMsg = () => ({
     'data': JSON.stringify([getLatestBlock()])
 });
 
+// Retrive the latest block in the blockchain
 var getLatestBlock = () => {
     if (typeof  blockchain !== 'undefined'){
         return blockchain[blockchain.length - 1];
