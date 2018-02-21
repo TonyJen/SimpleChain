@@ -1,0 +1,28 @@
+version: '2'
+services:
+  node1:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+    - "4000:4000"
+  node2:
+    environment:
+      - PEERS=ws://node1:5000
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+    - "4001:4000"
+    links:
+      - node1:node1
+  node3:
+    environment:
+      - PEERS=ws://node2:5000
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+    - "4002:4000"
+    links:
+      - node2:node2

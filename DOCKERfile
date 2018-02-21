@@ -1,0 +1,14 @@
+FROM node:9.4
+
+RUN mkdir /simplechain
+ADD package.json /simplechain/
+ADD server.js /simplechain/
+ADD peerserver.js /simplechain/
+ADD block.js /simplechain/
+
+RUN cd /simplechain && npm install
+
+EXPOSE 4000
+EXPOSE 5000
+
+ENTRYPOINT cd /simplechain && npm install && PEERS=$PEERS npm start
