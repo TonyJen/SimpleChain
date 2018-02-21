@@ -1,4 +1,11 @@
-// create Block object
+/*!
+ * SimpleChain
+ * Block
+ * Copyright(c) 2018 Tony Jen
+ * MIT Licensed
+ */
+
+// Create Block object
 module.exports = class Block {
     constructor(index, previousHash, timestamp, data, hash) {
         this.index = index;

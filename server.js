@@ -1,3 +1,10 @@
+/*!
+ * SimpleChain
+ * Server
+ * Copyright(c) 2018 Tony Jen
+ * MIT Licensed
+ */
+
 'use strict';
 var CryptoJS = require("crypto-js");
 var express = require("express");

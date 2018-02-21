@@ -1,3 +1,10 @@
+/*!
+ * SimpleChain
+ * peerServer
+ * Copyright(c) 2018 Tony Jen
+ * MIT Licensed
+ */
+
 var WebSocket =  require("ws");
 module.exports = peer;
 
